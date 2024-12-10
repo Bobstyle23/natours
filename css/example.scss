@@ -3,6 +3,7 @@
   padding: 0;
 }
 
+/* NOTE: variables */
 $color-primary: #f9ed69;
 $color-secondary: #f08a5d;
 $color-tertiary: #b83b53;
@@ -10,15 +11,42 @@ $color-text-dark: #333;
 $color-text-light: #eee;
 $width-button: 150px;
 
-nav {
-  margin: 30px;
-  background-color: $color-primary;
-
+/* NOTE: mixin */
+@mixin clearfix {
   &::after {
     content: "";
     clear: both;
     display: table;
   }
+}
+
+/* NOTE: mixin */
+@mixin style-link-text($color) {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $color;
+}
+
+/* NOTE: functions */
+@function divide($a, $b) {
+  @return $a / $b;
+}
+
+/* NOTE: extends */
+%btn-placeholder {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 100px;
+  width: $width-button;
+  @include style-link-text($color-text-light);
+}
+
+nav {
+  margin: divide(60, 2) * 1px;
+  background-color: $color-primary;
+
+  @include clearfix;
 }
 
 .navigation {
@@ -34,9 +62,7 @@ nav {
     }
 
     a:link {
-      text-decoration: none;
-      text-transform: uppercase;
-      color: $color-text-dark;
+      @include style-link-text($color-text-dark);
     }
   }
 }
@@ -45,20 +71,9 @@ nav {
   float: right;
 }
 
-.btn-main:link,
-.btn-hot:link {
-  padding: 10px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 100px;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: $width-button;
-  color: $color-text-light;
-}
-
 .btn-main {
   &:link {
+    @extend %btn-placeholder;
     background-color: $color-secondary;
   }
 
@@ -69,6 +84,7 @@ nav {
 
 .btn-hot {
   &:link {
+    @extend %btn-placeholder;
     background-color: $color-tertiary;
   }
 
