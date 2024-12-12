@@ -2,7 +2,7 @@ body {
   font-family: "Lato", sans-serif;
   line-height: 1.7;
   font-weight: 400;
-  font-size: 16px;
+  font-size: $default-font-size;
   color: $color-grey-dark;
   padding: 3rem;
 }
@@ -57,8 +57,7 @@ body {
 }
 
 .heading-tertiary {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: $default-font-size;
   text-transform: uppercase;
 }
 
