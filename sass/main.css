@@ -226,15 +226,19 @@ body {
   text-align: center;
   border-radius: 0.3rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
 }
 .feature-box__icon {
   font-size: 6rem;
   margin-bottom: 0.5rem;
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
   background-clip: text;
-  color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.feature-box:hover {
+  cursor: pointer;
+  transform: translateY(-1.5rem) scale(1.03);
 }
 .section-about {
   background-color: #f7f7f7;
@@ -246,6 +250,11 @@ body {
   padding: 20rem 0;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../../img/nat-4.jpg");
   background-size: cover;
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+}
+.section-features > * {
+  transform: skewY(7deg);
 }
 
 .header {
